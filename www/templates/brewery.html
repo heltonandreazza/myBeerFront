@@ -1,0 +1,64 @@
+<ion-view>
+    <ion-floating-button click="vm.goCart()" button-color="#E65100" icon="ion-ios-cart"></ion-floating-button>
+    <ion-content>
+        <div class="content has-header">
+            <form name="form" novalidate>
+                <div class="list">
+                    <div id="myImgBack" class="item item-avatar">
+                        <img id="myImgProfile" src="" style="border-radius: 0px; max-height: 70px; max-width: 70px; margin-top: 50px">
+                        <h2>
+                            <br><br><br><br>
+                            <button ng-click="vm.uploadProfile()" class="button button-small button-positive icon ion-beer" type="button"></button>
+                            <button ng-click="vm.uploadBack()" class="button button-small button-positive icon ion-home" type="button"></button>
+                        </h2>
+                    </div>
+                    <label class="item item-input item-floating-label">
+                    <span class="input-label">Name</span>
+                    <input required ng-model="vm.brewery.fullName" type="text" placeholder="Name">
+                </label>
+                    <label class="item item-input item-floating-label">
+                    <span class="input-label">Initial Date</span>
+                    <input required ng-model="vm.brewery.initDate" type="date" placeholder="Initial Date">
+                </label>
+                    <label class="item item-input item-floating-label">
+                    <span class="input-label">Short Description</span>
+                    <input required ng-model="vm.brewery.description" type="text" placeholder="Short Description">
+                </label>
+                    <label class="item item-input item-floating-label">
+                    <span class="input-label">About</span>
+                    <textarea required ng-model="vm.brewery.about" placeholder="About"></textarea>
+                </label>
+                    <label class="item item-input item-floating-label">
+                    <span class="input-label">E-mail</span>
+                    <input required ng-model="vm.brewery.email" type="text" placeholder="E-mail">
+                </label>
+                    <label class="item item-input item-floating-label">
+                    <span class="input-label">Address</span>
+                    <input required ng-model="vm.brewery.address" type="text" placeholder="Address">
+                </label>
+                    <label class="item item-input item-floating-label">
+                    <span class="input-label">Phone Number</span>
+                    <input required ng-model="vm.brewery.phoneNumber" type="number" placeholder="Phone Number">
+                </label>
+                    <label class="item item-input item-floating-label">
+                    <span class="input-label">Site</span>
+                    <input required ng-model="vm.brewery.site" type="text" placeholder="Site">
+                </label>
+                    <label class="item item-input item-floating-label">
+                    <span class="input-label">Facebook</span>
+                    <input required ng-model="vm.brewery.facebook" type="text" placeholder="Facebook">
+                </label>
+                    <label class="item item-input item-floating-label">
+                    <span class="input-label">Owner</span>
+                    <input required ng-readonly="true" ng-model="vm.brewery.owner.fullName" type="text" placeholder="Owner">
+                </label>
+                    <label class="item">
+                    <button ng-disabled="form.$invalid" ng-click="vm.createBrewery(vm.brewery)" class="button button-block button-positive">
+                        create brewery
+                    </button>
+                </label>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

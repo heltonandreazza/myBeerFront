@@ -1,0 +1,67 @@
+<ion-view>
+    <ion-floating-button click="vm.goCart()" button-color="#E65100" icon="ion-ios-cart"></ion-floating-button>
+    <ion-content>
+        <div class="content has-header">
+            <div ng-if="vm.about == 'brewery'" class="list card">
+                <div class="item item-avatar">
+                    <img src="{{vm.brewery.profilePic}}" style="border-radius: 0px; max-height: 70px; max-width: 70px">
+                    <h2 style="padding-left: 20px;">{{vm.brewery.fullName}}</h2>
+                    <p style="padding-left: 20px;">{{vm.brewery.initDate | date : 'fullDate'}}</p>
+                </div>
+                <div class="item item-body">
+                    <p>
+                        {{vm.brewery.description}}
+                    </p>
+                    <p>
+                        {{vm.brewery.about}}
+                    </p>
+                </div>
+
+                <div class="list card">
+                    <a href="#" class="item item-icon-left">
+                        <i class="icon ion-beer"></i> Cervejaria artesanal
+                    </a>
+                    <a href="#" class="item item-icon-left">
+                        <i class="icon ion-ios-location"></i> {{vm.brewery.address}}
+                    </a>
+                    <a href="#" class="item item-icon-left">
+                        <i class="icon ion-ios-telephone"></i> {{vm.brewery.phoneNumber}}
+                    </a>
+                    <a href="#" class="item item-icon-left">
+                        <i class="icon ion-earth"></i> {{vm.brewery.site}}
+                    </a>
+                    <a href="#" class="item item-icon-left">
+                        <i class="icon ion-social-facebook"></i> {{vm.brewery.facebook}}
+                    </a>
+                    <a href="#" class="item item-icon-left">
+                        <i class="icon ion-person"></i> owner: {{vm.brewery.owner.fullName}}
+                    </a>
+                </div>
+
+            </div>
+            <div ng-if="vm.about == 'user'" class="list card">
+                <div class="item item-avatar">
+                    <img src="{{vm.user.picture.data.url}}" style="border-radius: 0px; max-height: 70px; max-width: 70px">
+                    <h2 style="padding-left: 20px;">{{vm.user.name}}</h2>
+                    <p style="padding-left: 20px;">Cervejeiro</p>
+                </div>
+                <a href="#" class="item item-icon-left">
+                    <i class="icon ion-home"></i> {{vm.user.name}}
+                </a>
+                <a href="#" class="item item-icon-left">
+                    <i class="icon ion-email"></i> {{vm.user.email}}
+                </a>
+                <a href="{{vm.user.link}}" class="item item-icon-left">
+                    <i class="icon ion-social-facebook"></i> facebook
+                </a>
+                <div class="item item-divider">
+                    Education
+                </div>
+                <a ng-repeat="education in vm.user.education" class="item" href="#">
+                    <p>Name: {{education.school.name}}</p>
+                    <p>Year: {{education.year.name}}</p>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

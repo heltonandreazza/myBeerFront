@@ -1,0 +1,32 @@
+<ion-view view-title="User Profile">
+    <ion-floating-button click="vm.goCart()" button-color="#E65100" icon="ion-ios-cart"></ion-floating-button>
+    <ion-content class="has-double-header" ng-class="{expanded:$scope.isExpanded}">
+        <div class="hero hero slide-up" style="background-image: url('img/back.jpg');">
+            <div class="content">
+                <div class="avatar" style="background-image: url('http://graph.facebook.com/{{vm.user.id}}/picture?width=170&height=170');"></div>
+                <h3><a class="light">{{vm.user.name}}</a></h3>
+                <h4>cervejeiro</h4>
+            </div>
+        </div>
+        <div class="tabs tabs-dark tabs-icon-top static">
+            <a ui-sref="app.activity" class="tab-item">
+                <i class="icon ion-arrow-graph-up-right"></i> Activity
+            </a>
+            <a ui-sref="app.friends" class="tab-item">
+                <i class="icon ion-android-people"></i> Friends
+            </a>
+            <a ui-sref="app.about" class="tab-item">
+                <i class="icon ion-images"></i> About
+            </a>
+        </div>
+        <h4 class="content padding double-padding-x">Following</h4>
+        <div class="list animate-fade-slide-in-right">
+            <a ng-repeat="friend in vm.friends" ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="{{friend.picture.data.url}}">
+                <h2>{{friend.name}}</h2>
+                <p>cervejeiro</p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

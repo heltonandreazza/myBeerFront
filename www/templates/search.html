@@ -1,0 +1,21 @@
+<ion-view>
+    <ion-floating-button click="vm.goCart()" button-color="#E65100" icon="ion-ios-cart"></ion-floating-button>
+    <ion-content>
+        <div class="content has-header">
+            <div class="list">
+                <label class="item item-input item-floating-label">
+					<span class="input-label">Search</span>
+					<input ng-model="vm.search" type="text" placeholder="Search...">
+				</label>
+            </div>
+            <div class="list animate-blinds">
+                <a ng-repeat="bre in vm.breweries" ng-click="vm.goBrewery(bre._id)" class="item item-avatar item-icon-right">
+                    <img src="{{bre.profilePic}}">
+                    <h2>{{bre.fullName}}</h2>
+                    <p>{{bre.description}}</p>
+                    <i class="icon ion-beer muted"></i>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

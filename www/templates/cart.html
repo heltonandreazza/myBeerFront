@@ -1,0 +1,29 @@
+<ion-view>
+    <ion-floating-button click="vm.pay()" button-color="#E65100" icon="ion-social-usd"></ion-floating-button>
+    <ion-content>
+        <div class="content has-header">
+            <div class="list animate-blinds">
+                <div class="item item-divider">
+                    Total: {{vm.cart.total | currency}}
+                </div>
+                <div ng-repeat="beer in vm.beers" class="item item-thumbnail-left item-icon-right double">
+                    <img id="{{beer.item._id}}" ng-click="vm.goProductDetails(beer.item._id)" class="menu_links" src="" style="max-height: 85px; max-width: 85px; top: 12px;">
+                    <h2>{{ beer.item.name }}</h2>
+                    <label class="item item-input input-custom">
+                        <p>{{ beer.price | currency }}&nbsp;</p>
+                    </label>
+                    <label class="item item-input input-custom">
+                        <span>Quantity:</span>
+                        <input type="number" ng-model="beer.quantity">
+                    </label>
+                    <button ng-click="vm.removeFromCart(beer._id)" class="button button-small button-assertive" type="button">remove</button>
+                    <a ng-click="beer.quantity = beer.quantity - ( beer.quantity > 1 ? 1 : 0); vm.minusOne(beer.item._id)" class="icon ion-minus-circled red left"></a>
+                    <a ng-click="beer.quantity = beer.quantity + 1; vm.plusOne(beer.item._id)" class="icon ion-plus-circled green right"></a>
+                </div>
+                <div class="item item-divider">
+                    Total: {{vm.cart.total | currency}}
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

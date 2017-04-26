@@ -1,0 +1,42 @@
+<ion-view view-title="Activity">
+    <ion-floating-button click="vm.goCart()" button-color="#E65100" icon="ion-ios-cart"></ion-floating-button>
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in has-double-header">
+        <div ng-repeat="payment in vm.payments" class="item card-item in in done" style="transition-delay: 0.18s;">
+            <div class="card stable-bg ink ink-dark">
+                <div class="item item-text-wrap in in done" style="transition-delay: 0.25s;">
+                    <p><strong>PAYMENT DATA</strong></p>
+                    <p><strong>Id: </strong>{{payment.id}}</p>
+                    <p><strong>Total: </strong>{{ (payment.amount) | currency}}</p>
+                    <br>
+                    <p><strong>CARD DATA</strong></p>
+                    <p><strong>Brand: </strong>{{payment.card.brand}}</p>
+                    <p><strong>Country: </strong>{{payment.card.country}}</p>
+                    <p><strong>Payment type: </strong>{{payment.card.funding}}</p>
+                    <p><strong>Expiration month: </strong>{{payment.card.exp_month}}</p>
+                    <p><strong>Expiration year: </strong>{{payment.card.exp_year}}</p>
+                    <p><strong>Last digits: </strong>{{payment.card.last4}}</p>
+                </div>
+                <div class="item item-text-wrap in in done" style="transition-delay: 0.25s;">
+                    <p><strong>ACCQUIRED PRODUCTS</strong></p>
+                </div>
+                <div ng-repeat="item in payment.items" class="item item-avatar item-text-wrap in in done" style="transition-delay: 0.25s;">
+                    <span class="avatar" style="background-image: url('{{item.item.image}}'); border-radius: 15%;"></span>
+                    <p><strong>{{item.item.name}}</strong></p>
+                    <p><strong>quantity: </<strong>{{item.quantity}}</p>
+                    <p><strong>paid: </<strong>{{item.paid | currency}}</p>
+                    
+                    <!--<div class="card-footer text-right">
+                        <i class="icon ion-chatbubble positive"></i> 2
+                        <i class="icon ion-heart assertive"></i> 4
+                        <div class="pull-left">
+                            <i class="icon ion-clock"></i> 12 mins ago
+                        </div>
+                    </div>-->
+                </div>
+                <div class="item item-text-wrap in in done" style="transition-delay: 0.25s;">
+                    <h2><strong>Total: </strong>{{ (payment.amount) | currency}}</h2>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

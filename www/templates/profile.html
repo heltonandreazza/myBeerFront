@@ -1,0 +1,63 @@
+<ion-view view-title="Breweri Page">
+    <div ng-if="vm.brewery">
+        <ion-floating-button ng-if="vm.$state.current.name == 'app.profile'" click="vm.goCart()" button-color="#E65100" icon="ion-ios-cart"></ion-floating-button>
+        <ion-floating-menu ng-if="vm.$state.current.name == 'app.myprofile'" menu-color="#E65100" menu-open-color="#E65100">
+            <ion-floating-item click="vm.goCart()" icon="ion-ios-cart" button-color="#E65100"></ion-floating-item>
+            <ion-floating-item click="vm.goNewProduct()" icon="ion-plus" button-color="#E65100"></ion-floating-item>
+            <ion-floating-item click="vm.goEditBrewery()" icon="ion-edit" button-color="#E65100"></ion-floating-item>
+        </ion-floating-menu>
+    </div>
+    <ion-content class="has-double-header" ng-class="{expanded:$scope.isExpanded}">
+        <div ng-if="!vm.brewery" style="background-image: url('../img/firstbrewery.jpg'); height: 622px;">
+            <button ng-if="vm.showbt" ng-click="vm.goNewBrewery()" class="button button-block button-positive" type="button">Create your first brewery page</button>
+        </div>
+        <div class="hero breweri slide-up" style="background-image: url({{vm.brewery.backPic}});">
+            <div class="content">
+                <div class="avatar" style="background-image: url('{{vm.brewery.profilePic}}'); margin-bottom: -65px"></div>
+            </div>
+        </div>
+        <div class="list animate-fade-slide-in-right" style="margin-bottom: 0px;">
+            <a class="item item-avatar item-icon-right in in done done" style="transition-delay: 0.29s;padding-bottom: 5px;padding-top: 10px;/* padding: 5px; */">
+                <h2 style="padding-left: 10px;" class=""><strong>{{vm.brewery.fullName}}</strong></h2>
+                <div class="row" style="padding-top: 0;">
+                    <i class="col-10 icon icon-left ion-location" style="position: inherit;font-size: 20px;"></i>
+                    <h6 class="col" style="position: relative;">{{vm.brewery.address}}</h6>
+                </div>
+                <div class="row" style="padding-top: 0;padding-bottom: 0;">
+                    <i class="col-10 icon icon-left ion-earth" style="position: inherit;font-size: 20px;"></i>
+                    <h6 class="col" style="position: relative;">{{vm.brewery.site}}</h6>
+                </div>
+                <i class="icon ion-social-facebook" href="{{vm.brewery.facebook}}"></i>
+            </a>
+        </div>
+        <div class="tabs tabs-dark tabs-icon-top static">
+            <a ui-sref="app.breweryproducts" class="tab-item">
+                <i class="icon ion-beer"></i> Products
+            </a>
+            <a href="/#/app/rating/{{vm.brewery._id}}" class="tab-item">
+                <i class="icon ion-star"></i> Ratings
+            </a>
+            <a ng-click="vm.goAbout()" class="tab-item">
+                <i class="icon ion-images"></i> About
+            </a>
+        </div>
+        <h4 class="content padding double-padding-x">Beers</h4>
+        <div class="list animate-fade-slide-in-right">
+            <div ng-repeat="beer in vm.beers" class="item item-thumbnail-left item-icon-right double">
+                <img ng-click="vm.goProductDetails(beer._id)" class="menu_links" src="{{beer.image}}">
+                <h2>{{ beer.name }}</h2>
+                <label class="item item-input input-custom">
+                    <p>{{ beer.price | currency }}&nbsp;</p>
+                </label>
+                <label class="item item-input input-custom">
+                    <span>Quantity:</span>
+                    <input type="number" ng-model="beer.quantity">
+                </label>
+                <button ng-click="vm.addToCart(beer)" class="button button-small button-positive" type="button">add cart</button>
+                <a ng-click="beer.quantity = beer.quantity - ( beer.quantity > 0 ? 1 : 0)" class="icon ion-minus-circled red left"></a>
+                <a ng-click="beer.quantity = beer.quantity + 1" class="icon ion-plus-circled green right"></a>
+            </div>
+        </div>
+        <h4 class="content padding double-padding-x"></h4>
+    </ion-content>
+</ion-view>

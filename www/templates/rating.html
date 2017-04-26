@@ -1,0 +1,31 @@
+<ion-view>
+    <ion-floating-button click="vm.goCart()" button-color="#E65100" icon="ion-ios-cart"></ion-floating-button>
+    <ion-content>
+        <div class="content has-header">
+            <div class="list card">
+                <div class="item item-avatar">
+                    <img src="img/star.jpg" style="max-width: 60px; max-height: 60px">
+                    <h2 style="font-size: xx-large;">{{vm.brewery.rating}}</h2>
+                    <p>Total {{vm.brewery.qtdRating}}</p>
+                </div>
+                <div class="item item-body">
+                    <a href="#" class="item item-icon-left">
+                        <i class="icon ion-star"></i> 5 - {{vm.brewery.ratings[4]}}
+                    </a>
+                    <a href="#" class="item item-icon-left">
+                        <i class="icon ion-star"></i> 4 - {{vm.brewery.ratings[3]}}
+                    </a>
+                    <a href="#" class="item item-icon-left">
+                        <i class="icon ion-star"></i> 3 - {{vm.brewery.ratings[2]}}
+                    </a>
+                    <a href="#" class="item item-icon-left">
+                        <i class="icon ion-star"></i> 2 - {{vm.brewery.ratings[1]}}
+                    </a>
+                    <a href="#" class="item item-icon-left">
+                        <i class="icon ion-star"></i> 1 - {{vm.brewery.ratings[0]}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

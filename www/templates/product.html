@@ -1,0 +1,54 @@
+<ion-view>
+    <ion-floating-button ng-if="vm.id" click="vm.goCart()" button-color="#E65100" icon="ion-ios-cart"></ion-floating-button>
+    <ion-content>
+        <div class="content has-header">
+            <form name="form" novalidate>
+                <div class="list">
+                    <div class="item item-avatar">
+                        <img id="myImg" src="" style="border-radius: 0px; max-height: 100px; max-width: 100px; margin-top: 10px">
+                        <h2 style="padding-left: 20px;">
+                            <label class="item item-input item-floating-label">
+                            <span class="input-label">Name</span>
+                            <input required ng-readonly="vm.id" type="text" ng-model="vm.product.name" placeholder="Name">
+                        </label>
+                        </h2>
+                        <button ng-if="!vm.id" ng-click="vm.upload()" style="margin-left: 36px;" class="button button-small button-positive" type="button">upload image</button>
+                        <div ng-if="vm.id">
+                            <button ng-click="vm.addToCart(vm.product)" style="margin-left: 36px;" class="button button-small button-positive icon ion-ios-cart"></button>
+                            <span style="vertical-align: bottom; padding-left: 10px; padding-right: 10px;">{{ vm.quantity }}</span>
+                            <button style="padding-right: 15px; padding-left: 15px;" ng-click="vm.quantity = vm.quantity - ( vm.quantity > 0 ? 1 : 0)" class="button button-small button-assertive icon ion-minus"></button>
+                            <button style="padding-right: 15px; padding-left: 15px;" ng-click="vm.quantity = vm.quantity + 1" class="button button-small button-balanced icon ion-plus"></button>
+                        </div>
+                    </div>
+
+                    <label class="item item-input item-floating-label">
+                    <span class="input-label">Description</span>
+                    <textarea ng-readonly="vm.id" ng-model="vm.product.description" placeholder="Description"></textarea>
+                </label>
+                    <label class="item item-input item-floating-label">
+                    <span class="input-label">Price</span>
+                    <input required ng-readonly="vm.id" ng-model="vm.product.price" type="number" placeholder="Price">
+                </label>
+                    <label ng-if="vm.id" class="item item-input item-floating-label">
+                    <span class="input-label">Category</span>
+                    <input required ng-readonly="vm.id" ng-model="vm.product.category.name" type="text" placeholder="category">
+                </label>
+                    <label ng-if="vm.id" class="item item-input item-floating-label">
+                    <span class="input-label">Brewery</span>
+                    <input required ng-readonly="vm.id" ng-model="vm.product.brewery.fullName" type="text" placeholder="brewery">
+                </label>
+                    <br>
+                    <label ng-if="!vm.id" class="item item-input item-select">
+                    <div class="input-label">Category</div>
+                    <select required ng-readonly="vm.id" ng-model="vm.product.category" ng-options="category.name for category in vm.categories"></select>
+                </label>
+                    <label ng-if="!vm.id" class="item">
+                    <button ng-disabled="form.$invalid" ng-click="vm.createProduct(vm.product)" class="button button-block button-positive">
+                        create product
+                    </button>
+                </label>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

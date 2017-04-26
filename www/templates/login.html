@@ -1,0 +1,14 @@
+<ion-view view-title="Login" align-title="left">
+    <ion-content style="background: url(img/login1.jpg) center; background-size: cover;">
+        <div class="hero no-header flat">
+            <div class="content">
+                <div class="app-icon"></div>
+            </div>
+        </div>
+        <div class="padding">
+            <button class="button button-full icon-left ion-social-facebook button-positive-900 ink" ng-click="vm.fbLogin()">Login Facebook</button>
+            <button ui-sref="app.userprofile" class="button button-full icon-left ion-social-google button-assertive-900 ink">Login Google</button>
+            <button ui-sref="app.userprofile" class="button button-full icon-left ion-social-twitter button-calm-900">Login Twitter</button>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,15 @@
+<ion-view view-title="Friends">
+    <ion-floating-button click="vm.goCart()" button-color="#E65100" icon="ion-ios-cart"></ion-floating-button>
+    <ion-content>
+        <div class="content has-header">
+            <div class="list animate-fade-slide-in-right">
+                <a ng-repeat="f in vm.friends" href="#/app/user-profile" class="item item-avatar item-icon-right">
+                    <img src="{{f.picture.data.url}}">
+                    <h2>{{f.name}}</h2>
+                    <p>cervejeiro</p>
+                    <i class="icon ion-chatbubble muted"></i>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
