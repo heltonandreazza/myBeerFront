@@ -1,1 +1,1 @@
-web: npm install && bower install && npm start
+web: ionic serve
