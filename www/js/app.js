@@ -529,7 +529,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = angular.module('app.core', []).controller('AppCtrl', _app2.default).run(_app4.default).constant("SERVER", {
-	    URL: "http://localhost:3000/"
+	    URL: "https://my-beer-back-app-helton.herokuapp.com/"
 	}).config(_app6.default).name;
 
 /***/ },

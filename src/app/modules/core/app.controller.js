@@ -65,6 +65,7 @@ function AppCtrl($scope, $ionicModal, $ionicPopover, $timeout, $state) {
     };
 
     $scope.hasHeader = function() {
+        console.log("ad")
         var content = document.getElementsByTagName('ion-content');
         for (var i = 0; i < content.length; i++) {
             if (!content[i].classList.contains('has-header')) {
