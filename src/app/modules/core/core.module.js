@@ -6,7 +6,7 @@ export default angular.module('app.core', [])
     .controller('AppCtrl', AppCtrl)
     .run(run)
     .constant("SERVER", {
-        URL: "http://localhost:3000/"
+        URL: "https://my-beer-back-app-helton.herokuapp.com/"
     })
     .config(config)
     .name;
