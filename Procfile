@@ -1,1 +1,1 @@
-web: ionic serve
+web: npm start
